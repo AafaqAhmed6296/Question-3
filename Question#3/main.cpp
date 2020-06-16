@@ -68,5 +68,18 @@ void playerName(Team team[5]) {
 }
 
 void TeamName(Team team[5]){
+    for (int i = 0; i < 5 ; i++)
+    {
+        for (int j=i ; j < 5 ; j++)
+        {
+            if (team[j].winCount > team[i].winCount)
+            {
+                int temp = team[i].winCount;
+                team[i].winCount = team[j].winCount;
+                team[j].winCount = temp;
+            }
+        }
+    }
     
+    cout << "Team having more wins: " << team[0].teamName;
 }
