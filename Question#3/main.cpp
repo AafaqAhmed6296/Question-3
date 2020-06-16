@@ -10,6 +10,8 @@
 using namespace std;
 struct Team;
 void playerName(Team team[5]);
+void TeamName(Team team[5]);
+void playerWithMoreInnings(Team team[5]);
 struct Player {
     char playerName[20];
     int runs;
@@ -60,7 +62,7 @@ void playerName(Team team[5]) {
         for (int j = 0 ; j < 11 ; j++) {
             if (team[i].player[j].runs > 5000){
                 cout << "Player Name " << team[i].player[j].playerName << endl;
-                cout << "Player team's Name " << team[i].teamName;
+                cout << "Player team's Name " << team[i].teamName << endl;
                 
             }
         }
@@ -82,4 +84,24 @@ void TeamName(Team team[5]){
     }
     
     cout << "Team having more wins: " << team[0].teamName;
+}
+
+void playerWithMoreInnings(Team team[5]) {
+    for (int i = 0; i < 5 ; i++)
+    {
+        for (int j=i ; j < 5 ; j++)
+        {   for(int k = j ; k < 11 ; k++)
+            if (team[j].player[k].innings > team[i].player[k].innings)
+            {
+                int temp = team[i].player[k].innings;
+                team[i].player[k].innings = team[j].player[k].innings;
+                team[j].player[k].innings = temp;
+            }
+        }
+    }
+    
+    cout << "Player Name : " << team[0].player[0].playerName << endl;
+    cout << "Player Innings: " << team[0].player[0].innings << endl;
+    cout << "Player runs: " << team[0].player[0].runs << endl;
+    cout << "Player not out times: " << team[0].player[0].notOut << endl;
 }
