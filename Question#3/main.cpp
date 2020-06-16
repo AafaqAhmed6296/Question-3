@@ -9,8 +9,8 @@
 #include <iostream>
 using namespace std;
 struct Team;
-void playerName(Team team[5]);
-void TeamName(Team team[5]);
+void playerNamesWithMoreRuns(Team team[5]);
+void teamHavingMoreWins(Team team[5]);
 void playerWithMoreInnings(Team team[5]);
 struct Player {
     char playerName[20];
@@ -48,16 +48,18 @@ int main(){
         }
     }
     
+    playerNamesWithMoreRuns(team);
     
+    teamHavingMoreWins(team);
     
-    
+    playerWithMoreInnings(team);
     
     
     
     return 0;
 }
 
-void playerName(Team team[5]) {
+void playerNamesWithMoreRuns(Team team[5]) {
     for (int i = 0 ; i < 5 ; i ++ ) {
         for (int j = 0 ; j < 11 ; j++) {
             if (team[i].player[j].runs > 5000){
@@ -69,7 +71,7 @@ void playerName(Team team[5]) {
     }
 }
 
-void TeamName(Team team[5]){
+void teamHavingMoreWins(Team team[5]){
     for (int i = 0; i < 5 ; i++)
     {
         for (int j=i ; j < 5 ; j++)
