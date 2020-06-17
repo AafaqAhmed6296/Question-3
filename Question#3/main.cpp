@@ -35,16 +35,22 @@ int main(){
     
     for (int i = 0; i < 5 ; i++) {
         cout << "Enter Team " << i+1 << " Id "; cin >> team[i].teamId;
+        cin.clear();
+        cin.ignore(10000,'\n');
         cout << "Enter Team " << i+1 << " name "; cin.getline(team[i].teamName, 30);
         cout << "Enter Team " << i+1 << " matchesPlayed: "; cin >> team[i].matchesPlayed;
         cout << "Enter Team " << i+1 << " win matches: "; cin >> team[i].winCount;
         cout << "Enter Team " << i+1 << " draw matches :"; cin >> team[i].drawCount;
         cout << "Enter Team " << i+1 << " lossCount: "; cin >> team[i].lossCount;
+        
         for (int k = 0 ; k < 11 ; k++) {
+            cin.clear();
+            cin.ignore(10000,'\n');
             cout << "Enter Team " << i+1 << " player's Name: ";   cin.getline(team[i].player[k].playerName, 20);
             cout << "Enter Team " << i+1 << " player's runs: "; cin >>  team[i].player[k].runs;
             cout << "Enter Team " << i+1 << " player's innings: "; cin >>  team[i].player[k].innings;
             cout << "Enter Team " << i+1 << " player's times not out: "; cin >>  team[i].player[k].notOut;
+            
         }
     }
     
@@ -85,7 +91,7 @@ void teamHavingMoreWins(Team team[5]){
         }
     }
     
-    cout << "Team having more wins: " << team[0].teamName;
+    cout << "Team having more wins: " << team[0].teamName << endl;;
 }
 
 void playerWithMoreInnings(Team team[5]) {
